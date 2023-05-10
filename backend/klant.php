@@ -1,7 +1,7 @@
 <?php 
 
     class klant {
-        private $id;
+        private $klantid;
         private $voornaam;
         private $tvg;
         private $achternaam;
