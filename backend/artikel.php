@@ -1,7 +1,7 @@
 <?php 
 
     class artikel {
-        public $id;
+        public $artikelid;
         public $naam;
         public $prijs;
         public $omschrijving;
