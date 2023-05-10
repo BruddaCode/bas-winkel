@@ -5,13 +5,13 @@
 	
 
 
-	class database extends config {
+	class database {
 
 		private $mysqli='';
 
 
 		public function __construct(){
-			$this->mysqli = new mysqli($this->db_host,$this->db_user,$this->db_pass,$this->db_data);
+			$this->mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 		}
 
 
