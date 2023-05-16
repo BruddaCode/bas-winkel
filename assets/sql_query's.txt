@@ -1,0 +1,6 @@
+SELECT * FROM artikelen INNER JOIN leveranciers ON artikelen.levid = leveranciers.levid 
+SELECT * FROM leveranciers INNER JOIN inkooporders ON leveranciers.levid = inkooporders.levid
+SELECT * FROM artikelen INNER JOIN inkooporders ON artikelen.levid = inkooporders.levid
+SELECT * FROM verkooporders INNER JOIN klanten ON verkooporders.klantid = klanten.klantid
+SELECT * FROM verkooporders INNER JOIN artikelen ON verkooporders.klantid = artikelen.artid
+SELECT * FROM klanten INNER JOIN verkooporders ON klanten.klantid = verkooporders.verkordid
