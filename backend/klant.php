@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'dbcon.php';
 
 class Klant {
     private $servername = "localhost";
