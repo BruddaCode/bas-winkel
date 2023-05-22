@@ -1,14 +1,10 @@
 <?php
 include 'dbcon.php';
 
-class Klant {
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "basdb";
+class Klant extends config {
 
     public function insert($klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats) {
-        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        $conn = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
         if ($conn->connect_error) {
             die("Kan geen verbinding maken met de database: " . $conn->connect_error);
         }
