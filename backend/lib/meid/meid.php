@@ -1,12 +1,13 @@
 <?php
-
-	class meid {
+require("./backend/config.php");
+class meid extends config {
 	
+		
 		public function validateNewSession($meid_user_key){
 
 			$ch = curl_init();
-
-			$meid_api_request = "https://www.enthix.net/meid/api/v1/getUser.php?token=" . $meid_secret_key . "&user=" . $meid_user_key;
+			
+			$meid_api_request = "https://www.enthix.net/meid/api/v1/getUser.php?token=" . $this->meid_secret_key . "&user=" . $meid_user_key;
 
 			curl_setopt($ch, CURLOPT_URL, $meid_api_request);
 			curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -30,7 +31,7 @@
 		}
 		
 		public function generateLoginUrl(){
-			return "https://www.enthix.net/meid/oauth/index.php?client_id=" . $meid_client_id;
+			return "https://www.enthix.net/meid/oauth/index.php?client_id=" . $this->meid_client_id;
 		}
 		
 		
