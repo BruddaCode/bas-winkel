@@ -1,10 +1,25 @@
+<?php
+
+    if (isset($_POST['insert'])) {
+        require_once 'klant.php';
+        $klant = new Klant();
+        
+        $klant->klantnaam = $_POST['klantnaam'];
+        $klant->klantemail = $_POST['klantemail'];
+        $klant->klantadres = $_POST['klantadres'];
+        $klant->klantpostcode = $_POST['klantpostcode'];
+        $klant->klantwoonplaats = $_POST['klantwoonplaats'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <body>
 
 	<h1>Klant</h1>
 	<h2>Toevoegen</h2>
-	<form method="post" action="insertklant.php">
+	<form method="post" action="klant.php">
         <br>   
     <label for="an">Klantnaam:</label>
     <input type="text" id="" name="klantnaam" placeholder="klantnaam" required/>
