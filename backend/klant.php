@@ -13,7 +13,7 @@ class Klant extends database{
     public function __construct($klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats)
     {
         parent::__construct();
-        
+
         $this->klantnaam = $klantnaam;
         $this->klantemail = $klantemail;
         $this->klantadres = $klantadres;
@@ -23,8 +23,8 @@ class Klant extends database{
 
     public function insertKlant()
     {
-        $klant = $this->select("klant", "*", $this->klantnaam, $this->klantemail, $this->klantadres, $this->klantpostcode, $this->klantwoonplaats);
-
+        $klant = $this->select("klant", "*", "klantnaam={$this->klantnaam}, klantemail={$this->klantemail}, klantadres={$this->klantadres}, klantpostcode={$this->klantpostcode}, klantwoonplaats={$this->klantwoonplaats}");
+        
         $klant_object = $klant->insert("klant", $klant);
         return $klant_object;
     }
