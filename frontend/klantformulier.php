@@ -2,13 +2,8 @@
 
     if (isset($_POST['insert'])) {
         require_once 'klant.php';
-        $klant = new Klant();
-        
-        $klant->klantnaam = $_POST['klantnaam'];
-        $klant->klantemail = $_POST['klantemail'];
-        $klant->klantadres = $_POST['klantadres'];
-        $klant->klantpostcode = $_POST['klantpostcode'];
-        $klant->klantwoonplaats = $_POST['klantwoonplaats'];
+        $klant = new Klant($_POST['klantnaam'], $_POST['klantemail'], $_POST['klantadres'], $_POST['klantpostcode'], $_POST['klantwoonplaats']);
+        $klant_object = $klant->insertKlant();
     }
 
 ?>
