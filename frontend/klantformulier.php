@@ -1,9 +1,10 @@
 <?php
 
     if (isset($_POST['insert'])) {
-        require_once 'klant.php';
+        require_once '..\backend\klant.php';
         $klant = new Klant($_POST['klantnaam'], $_POST['klantemail'], $_POST['klantadres'], $_POST['klantpostcode'], $_POST['klantwoonplaats']);
         $klant_object = $klant->insertKlant();
+        
     }
 
 ?>
@@ -14,7 +15,7 @@
 
 	<h1>Klant</h1>
 	<h2>Toevoegen</h2>
-	<form method="post" action="klant.php">
+	<form method="post" action="klantformulier.php">
         <br>   
     <label for="an">Klantnaam:</label>
     <input type="text" id="" name="klantnaam" placeholder="klantnaam" required/>
@@ -26,7 +27,7 @@
     <input type="text" id="" name="klantadres" placeholder="klantadres" required/>
         <br>
     <label for="an">Klantpostcode:</label>
-    <input type="text" id="rt" name="klantpostcode" placeholder="klantpostcode" required/>
+    <input type="text" id="" name="klantpostcode" placeholder="klantpostcode" required/>
         <br>
     <label for="an">Klantwoonplaats:</label>
     <input type="text" id="" name="klantwoonplaats" placeholder="klantwoonplaats" required/>
