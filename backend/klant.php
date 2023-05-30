@@ -22,8 +22,14 @@ class Klant extends database{
 
     public function insertKlant()
     {
-        $this->insert("klanten", array("klantnaam" => $this->klantnaam, "klantemail" => $this->klantemail, "klantadres" => $this->klantadres, "klantpostcode" => $this->klantpostcode, "klantwoonplaats" => $this->klantwoonplaats));
-        return true;
+        $object = $this->select("klanten", "*", "klantnaam='" . $this->klantnaam . "' OR klantemail='" . $this->klantemail . "' LIMIT 1");
+			
+        if($object->rowCount() == 1){
+            return false;
+        } else {
+            $this->insert("klanten", array("klantnaam" => $this->klantnaam, "klantemail" => $this->klantemail, "klantadres" => $this->klantadres, "klantpostcode" => $this->klantpostcode, "klantwoonplaats" => $this->klantwoonplaats));
+            return true;
+        }
     }
 
     
