@@ -13,7 +13,19 @@
         <a class="nav-link" href=".\frontend\klantformulier.php">Klant</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href=".\frontend\verkooporderformulier.php">Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=".\frontend\ordersinzien.php">Orders zien</a> 
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=".\frontend\anders.php">anders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=".\frontend\anders.php">anders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=".\frontend\anders.php">anders</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
