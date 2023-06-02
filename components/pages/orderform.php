@@ -1,11 +1,10 @@
 <?php
-    include_once './backend/order.php';
 
     if (isset($_POST['insert'])) {
         require_once '..\backend\order.php';
         $datum = date("Y-m-d");
-        $order = new order($_POST['artid'], $_POST['klantid'], $datum, $aantal, "in behandeling");
-        if($order->insertOrder()){
+        $order = new order();
+        if($order->insertOrder($_POST['klant'], $_POST['product'], $_POST['aantal'], $datum)){
 			print("Order is geplaatst.");
 		}
     }
@@ -21,7 +20,7 @@
     <?php
     echo "<form method='post' action='verkooporderformulier.php'>";
     echo "Klant: </br><select id='klant'>";
-    while($row = $stmt->fetch()) {
+    while($row = $order->selectKlanten()->fetch()) {
         $klantId = $row['klantId'];
         $klantNaam = $row['klantNaam'];
         echo "<option value=$klantId>$klantNaam (id: $klantId)</option>";    
