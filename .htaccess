@@ -9,15 +9,3 @@ RewriteRule ^/?(.*)$ /bas-winkel/index.php?route=/$1 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)\.mp4$ $1.php [L]
 
-ExpiresActive On
-ExpiresByType image/jpg "access 2 seconds"
-ExpiresByType image/jpeg "access 2 seconds"
-ExpiresByType image/gif "access 2 seconds"
-ExpiresByType image/png "access 2 seconds"
-ExpiresByType image/webp "access 2 seconds"
-ExpiresByType text/css "access 2 seconds"
-ExpiresByType application/pdf "access 2 seconds"
-ExpiresByType text/x-javascript "access 2 seconds"
-ExpiresByType application/x-shockwave-flash "access 2 seconds"
-ExpiresByType image/x-icon "access 2 seconds"
-ExpiresDefault "access 2 seconds"
