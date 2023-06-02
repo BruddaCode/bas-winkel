@@ -1,5 +1,5 @@
 <h1>Orders:</h1>
-<a href="components/pages/orderform.php" class="btn btn-primary">add</a>
+<a href="orders_add" class="btn btn-primary">add</a>
 
 
 <?php
