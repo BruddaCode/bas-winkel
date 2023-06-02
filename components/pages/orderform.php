@@ -6,7 +6,7 @@ if (isset($_POST['insert'])) {
 
 	$datum = date("Y-m-d");
 
-	if ($order->insertOrder($_POST['klant'], $_POST['product'], $_POST['aantal'], $datum)) {
+	if ($order->insertOrder($_POST['klant'], $_POST['product'], $_POST['aantal'], $datum, $num)) {
 		print("Order is geplaatst.");
 	}
 }
@@ -21,8 +21,7 @@ if (isset($_POST['insert'])) {
 	<h2>Maken</h2>
 
 	<?php
-	echo "<form method='post' action='verkooporderformulier.php'>";
-	var_dump($order->selectKlanten());
+	echo "<form method='post' action='orders_add'>";
 
 	echo "Klant: </br><select id='klant'>";
 	$orders = $order->selectKlanten();
@@ -40,10 +39,11 @@ if (isset($_POST['insert'])) {
 	echo "</select></br>";
 
 	echo "<select id='product'>";
-	while ($row2 = $stmt2->fetch()) {
-		$artId = $row2['artId'];
-		$artOmschrijving = $row2['artOmschrijving'];
-		$artVerkoop = $row2['artVerkoop'];
+    $orders2 = $order->selectArtikelen();
+	while ($row2 = $orders2->fetch()) {
+		$artId = $row2['artid'];
+		$artOmschrijving = $row2['artikelenomschrijving'];
+		$artVerkoop = $row2['artverkoop'];
 		echo "<option value=$artId>$artOmschrijving (&euro; $artVerkoop)</option>";
 	}
 	echo "</select>";
