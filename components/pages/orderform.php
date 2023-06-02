@@ -6,8 +6,11 @@ if (isset($_POST['insert'])) {
 
 	$datum = date("Y-m-d");
 
-	if ($order->insertOrder($_POST['klant'], $_POST['product'], $_POST['aantal'], $datum, $num)) {
-		print("Order is geplaatst.");
+	if ($order->insertOrder($_POST['product'], $_POST['klant'], $datum, $_POST['aantal'], 0)) {
+		echo "Order is geplaatst.";
+		exit;
+	} else {
+		echo "Kan order niet plaatsen.";
 	}
 }
 ?>
@@ -23,7 +26,7 @@ if (isset($_POST['insert'])) {
 	<?php
 	echo "<form method='post' action='orders_add'>";
 
-	echo "Klant: </br><select id='klant'>";
+	echo "Klant: </br><select name='klant'>";
 	$orders = $order->selectKlanten();
 	while ($row = $orders->fetch()) {
 		$klantId = $row['klantid'];
@@ -32,13 +35,13 @@ if (isset($_POST['insert'])) {
 	}
 	echo "</select></br>";
 
-	echo "</br>Product: </br><select id='aantal'>";
+	echo "</br>Product: </br><select name='aantal'>";
 	for ($num = 1; $num <= 10; $num++) {
 		echo '<option>' . $num . '</option>';
 	}
 	echo "</select></br>";
 
-	echo "<select id='product'>";
+	echo "<select name='product'>";
     $orders2 = $order->selectArtikelen();
 	while ($row2 = $orders2->fetch()) {
 		$artId = $row2['artid'];
@@ -47,7 +50,7 @@ if (isset($_POST['insert'])) {
 		echo "<option value=$artId>$artOmschrijving (&euro; $artVerkoop)</option>";
 	}
 	echo "</select>";
-	echo "<p><input type='submit' value='Verzenden'></p>";
+	echo "<p><input type='submit' name='insert' value='Verzenden'></p>";
 	echo "</form></br>";
 	?>
 

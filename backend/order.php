@@ -11,7 +11,7 @@ class order extends crud
 		parent::__construct();
 	}
 
-	public function insertOrder($artid, $klantid, $verkorddatum, $verkordbestaantal = 1, $verkordstatus = "in behandeling")
+	public function insertOrder($artid, $klantid, $verkorddatum, $verkordbestaantal = 1, $verkordstatus = 0)
 	{
 		$this->insert("verkooporders", array("artid" => $artid, "klantid" => $klantid, "verkorddatum" => $verkorddatum, "verkordbestaantal" => $verkordbestaantal, "verkordstatus" => $verkordstatus));
 		return true;
