@@ -1,0 +1,19 @@
+{
+	"PAGES": [
+		{
+			"ROUTE": "HOME",
+			"FILE": "index",
+			"TITLE": "Home"
+		},
+		{
+			"ROUTE": "KLANTEN",
+			"FILE": "klanten",
+			"TITLE": "Klanten"
+		},
+		{
+			"ROUTE": "ORDERS",
+			"FILE": "orders",
+			"TITLE": "Orders"
+		}
+	]
+}
