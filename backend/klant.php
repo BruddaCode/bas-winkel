@@ -2,7 +2,7 @@
 
     include_once 'crud.php';
 
-class Klant extends database{
+class Klant extends crud{
     public $klantnaam;
     public $klantemail;
     public $klantadres;

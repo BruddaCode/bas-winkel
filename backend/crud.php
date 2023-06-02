@@ -5,7 +5,7 @@ include_once("config.php");
 
 
 
-class database extends config
+class crud extends config
 {
 
 	private $conn = '';

@@ -1,9 +1,18 @@
 <?php
+// Local error reporting, please remove :)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+// Include dependecy's
 include_once("./backend/lib/meid/meid.php");
 include_once("./backend/pageManager.php");
 
-$page_manager = new pageManager($_GET["route"]);
+
+// Page routing
+$route = "home";
+if(isset($_GET["route"])) $route = $_GET["route"];
+$page_manager = new pageManager($route);
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +26,7 @@ $page_manager = new pageManager($_GET["route"]);
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	
+
 	<style>
 		.container {
 			padding: 12px;

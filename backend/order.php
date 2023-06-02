@@ -1,44 +1,35 @@
-<?php 
+<?php
 
-    include_once 'crud.php';
-    include_once 'artikel.php';
-    include_once 'klant.php';
-    class order extends database {
-        public $orderid;
-        public $artid;
-        public $klantid;
-        public $verkorddatum;
-        public $verkordbestaantal;
-        public $verkordstatus;
+include_once 'crud.php';
+include_once 'artikel.php';
+include_once 'klant.php';
+class order extends crud
+{
 
-        public function __construct($artid, $klantid, $verkorddatum, $verkordbestaantal = 1, $verkordstatus = "in behandeling")
-        {
-            parent::__construct();
-    
-            $this->artid = $artid;
-            $this->klantid = $klantid;
-            $this->verkorddatum = $verkorddatum;
-            $this->verkordbestaantal = $verkordbestaantal;
-            $this->verkordstatus = $verkordstatus;
-        }
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
-        public function insertOrder()
-        {
-            $this->insert("verkooporders", array("artid" => $this->artid, "klantid" => $this->klantid, "verkorddatum" => $this->verkorddatum, "verkordbestaantal" => $this->verkordbestaantal, "verkordstatus" => $this->verkordstatus));
-            return true;
-        }
+	public function insertOrder($artid, $klantid, $verkorddatum, $verkordbestaantal = 1, $verkordstatus = "in behandeling")
+	{
+		$this->insert("verkooporders", array("artid" => $artid, "klantid" => $klantid, "verkorddatum" => $verkorddatum, "verkordbestaantal" => $verkordbestaantal, "verkordstatus" => $verkordstatus));
+		return true;
+	}
+	public function selectOrders()
+	{
+		return $this->select("verkooporders", "*");
+	}
 
-        public function selectKlanten()
-        {
-            $object = $this->select("klanten", "*");
-            return $object;
-        }
+	public function selectKlanten()
+	{
+		$object = $this->select("klanten", "*");
+		return $object;
+	}
 
-        public function selectArtikelen()
-        {
-            $object = $this->select("artikelen", "*");
-            return $object;
-        }
-    }
-
-
+	public function selectArtikelen()
+	{
+		$object = $this->select("artikelen", "*");
+		return $object;
+	}
+}
