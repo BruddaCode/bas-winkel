@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Gegenereerd op: 04 jun 2023 om 10:44
--- Serverversie: 8.0.28
--- PHP-versie: 8.1.9
+-- Host: localhost
+-- Generation Time: Jun 04, 2023 at 12:42 PM
+-- Server version: 8.0.33
+-- PHP Version: 8.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `artikelen`
+-- Table structure for table `artikelen`
 --
 
 CREATE TABLE `artikelen` (
@@ -40,7 +40,7 @@ CREATE TABLE `artikelen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Gegevens worden geëxporteerd voor tabel `artikelen`
+-- Dumping data for table `artikelen`
 --
 
 INSERT INTO `artikelen` (`artid`, `artikelenomschrijving`, `artinkoop`, `artverkoop`, `artvoorraad`, `artminvoorraad`, `artmaxvoorraad`, `artlocatie`, `levid`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `artikelen` (`artid`, `artikelenomschrijving`, `artinkoop`, `artverk
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `inkooporders`
+-- Table structure for table `inkooporders`
 --
 
 CREATE TABLE `inkooporders` (
@@ -65,7 +65,7 @@ CREATE TABLE `inkooporders` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `klanten`
+-- Table structure for table `klanten`
 --
 
 CREATE TABLE `klanten` (
@@ -78,7 +78,7 @@ CREATE TABLE `klanten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Gegevens worden geëxporteerd voor tabel `klanten`
+-- Dumping data for table `klanten`
 --
 
 INSERT INTO `klanten` (`klantid`, `klantnaam`, `klantemail`, `klantadres`, `klantpostcode`, `klantwoonplaats`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `klanten` (`klantid`, `klantnaam`, `klantemail`, `klantadres`, `klan
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `leveranciers`
+-- Table structure for table `leveranciers`
 --
 
 CREATE TABLE `leveranciers` (
@@ -104,7 +104,7 @@ CREATE TABLE `leveranciers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Gegevens worden geëxporteerd voor tabel `leveranciers`
+-- Dumping data for table `leveranciers`
 --
 
 INSERT INTO `leveranciers` (`levid`, `levnaam`, `levcontact`, `levemail`, `levadres`, `levpostcode`, `levwoonplaats`) VALUES
@@ -115,59 +115,60 @@ INSERT INTO `leveranciers` (`levid`, `levnaam`, `levcontact`, `levemail`, `levad
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `tussentabelinkoop`
+-- Table structure for table `tussentabelinkoop`
 --
 
 CREATE TABLE `tussentabelinkoop` (
   `artid` int NOT NULL,
-  `inkoopid` int NOT NULL
+  `inkoopid` int NOT NULL,
+  `aantal` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `tussentabelverkoop`
+-- Table structure for table `tussentabelverkoop`
 --
 
 CREATE TABLE `tussentabelverkoop` (
   `artid` int NOT NULL,
-  `verkoopid` int NOT NULL
+  `verkoopid` int NOT NULL,
+  `aantal` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `verkooporders`
+-- Table structure for table `verkooporders`
 --
 
 CREATE TABLE `verkooporders` (
   `verkordid` int NOT NULL,
   `klantid` int NOT NULL,
   `verkorddatum` date DEFAULT NULL,
-  `verkordbestaantal` int DEFAULT NULL,
   `verkordstatus` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Gegevens worden geëxporteerd voor tabel `verkooporders`
+-- Dumping data for table `verkooporders`
 --
 
-INSERT INTO `verkooporders` (`verkordid`, `klantid`, `verkorddatum`, `verkordbestaantal`, `verkordstatus`) VALUES
-(1, 2, '2023-06-04', 4, 0);
+INSERT INTO `verkooporders` (`verkordid`, `klantid`, `verkorddatum`, `verkordstatus`) VALUES
+(1, 2, '2023-06-04', 0);
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `artikelen`
+-- Indexes for table `artikelen`
 --
 ALTER TABLE `artikelen`
   ADD PRIMARY KEY (`artid`),
   ADD KEY `levid` (`levid`);
 
 --
--- Indexen voor tabel `inkooporders`
+-- Indexes for table `inkooporders`
 --
 ALTER TABLE `inkooporders`
   ADD PRIMARY KEY (`inkordid`,`levid`),
@@ -175,33 +176,33 @@ ALTER TABLE `inkooporders`
   ADD KEY `fk_inkooporders_leveranciers1_idx` (`levid`);
 
 --
--- Indexen voor tabel `klanten`
+-- Indexes for table `klanten`
 --
 ALTER TABLE `klanten`
   ADD PRIMARY KEY (`klantid`);
 
 --
--- Indexen voor tabel `leveranciers`
+-- Indexes for table `leveranciers`
 --
 ALTER TABLE `leveranciers`
   ADD PRIMARY KEY (`levid`);
 
 --
--- Indexen voor tabel `tussentabelinkoop`
+-- Indexes for table `tussentabelinkoop`
 --
 ALTER TABLE `tussentabelinkoop`
   ADD PRIMARY KEY (`artid`,`inkoopid`),
   ADD KEY `inkoopid` (`inkoopid`);
 
 --
--- Indexen voor tabel `tussentabelverkoop`
+-- Indexes for table `tussentabelverkoop`
 --
 ALTER TABLE `tussentabelverkoop`
   ADD PRIMARY KEY (`artid`,`verkoopid`),
   ADD KEY `verkoopid` (`verkoopid`);
 
 --
--- Indexen voor tabel `verkooporders`
+-- Indexes for table `verkooporders`
 --
 ALTER TABLE `verkooporders`
   ADD PRIMARY KEY (`verkordid`,`klantid`),
@@ -209,71 +210,71 @@ ALTER TABLE `verkooporders`
   ADD KEY `fk_verkooporders_klanten1_idx` (`klantid`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `artikelen`
+-- AUTO_INCREMENT for table `artikelen`
 --
 ALTER TABLE `artikelen`
   MODIFY `artid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT voor een tabel `inkooporders`
+-- AUTO_INCREMENT for table `inkooporders`
 --
 ALTER TABLE `inkooporders`
   MODIFY `inkordid` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT voor een tabel `klanten`
+-- AUTO_INCREMENT for table `klanten`
 --
 ALTER TABLE `klanten`
   MODIFY `klantid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT voor een tabel `leveranciers`
+-- AUTO_INCREMENT for table `leveranciers`
 --
 ALTER TABLE `leveranciers`
   MODIFY `levid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT voor een tabel `verkooporders`
+-- AUTO_INCREMENT for table `verkooporders`
 --
 ALTER TABLE `verkooporders`
   MODIFY `verkordid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `artikelen`
+-- Constraints for table `artikelen`
 --
 ALTER TABLE `artikelen`
   ADD CONSTRAINT `artikelen_ibfk_1` FOREIGN KEY (`levid`) REFERENCES `leveranciers` (`levid`);
 
 --
--- Beperkingen voor tabel `inkooporders`
+-- Constraints for table `inkooporders`
 --
 ALTER TABLE `inkooporders`
   ADD CONSTRAINT `inkooporders_ibfk_1` FOREIGN KEY (`levid`) REFERENCES `leveranciers` (`levid`);
 
 --
--- Beperkingen voor tabel `tussentabelinkoop`
+-- Constraints for table `tussentabelinkoop`
 --
 ALTER TABLE `tussentabelinkoop`
   ADD CONSTRAINT `tussentabelinkoop_ibfk_1` FOREIGN KEY (`artid`) REFERENCES `artikelen` (`artid`),
   ADD CONSTRAINT `tussentabelinkoop_ibfk_2` FOREIGN KEY (`inkoopid`) REFERENCES `inkooporders` (`inkordid`);
 
 --
--- Beperkingen voor tabel `tussentabelverkoop`
+-- Constraints for table `tussentabelverkoop`
 --
 ALTER TABLE `tussentabelverkoop`
   ADD CONSTRAINT `tussentabelverkoop_ibfk_1` FOREIGN KEY (`artid`) REFERENCES `artikelen` (`artid`),
   ADD CONSTRAINT `tussentabelverkoop_ibfk_2` FOREIGN KEY (`verkoopid`) REFERENCES `verkooporders` (`verkordid`);
 
 --
--- Beperkingen voor tabel `verkooporders`
+-- Constraints for table `verkooporders`
 --
 ALTER TABLE `verkooporders`
   ADD CONSTRAINT `aaaaa` FOREIGN KEY (`klantid`) REFERENCES `klanten` (`klantid`);
