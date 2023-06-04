@@ -3,31 +3,20 @@
     include_once 'crud.php';
 
 class Klant extends crud{
-    public $klantnaam;
-    public $klantemail;
-    public $klantadres;
-    public $klantpostcode;
-    public $klantwoonplaats;
 
-    public function __construct($klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->klantnaam = $klantnaam;
-        $this->klantemail = $klantemail;
-        $this->klantadres = $klantadres;
-        $this->klantpostcode = $klantpostcode;
-        $this->klantwoonplaats = $klantwoonplaats;
     }
 
-    public function insertKlant()
+    public function insertKlant($klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats)
     {
-        $object = $this->select("klanten", "*", "klantnaam='" . $this->klantnaam . "' OR klantemail='" . $this->klantemail . "' LIMIT 1");
+        $object = $this->select("klanten", "*", "klantnaam='" . $klantnaam . "' OR klantemail='" . $klantemail . "' LIMIT 1");
 			
         if($object->rowCount() == 1){
             return false;
         } else {
-            $this->insert("klanten", array("klantnaam" => $this->klantnaam, "klantemail" => $this->klantemail, "klantadres" => $this->klantadres, "klantpostcode" => $this->klantpostcode, "klantwoonplaats" => $this->klantwoonplaats));
+            $this->insert("klanten", array("klantnaam" => $klantnaam, "klantemail" => $klantemail, "klantadres" => $klantadres, "klantpostcode" => $klantpostcode, "klantwoonplaats" => $klantwoonplaats));
             return true;
         }
     }

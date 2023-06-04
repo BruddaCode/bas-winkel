@@ -1,15 +1,13 @@
 <?php
+    require_once 'backend/klant.php';
+    $klant = new Klant();
 
     if (isset($_POST['insert'])) {
-        require_once '..\backend\klant.php';
-        $klant = new Klant($_POST['klantnaam'], $_POST['klantemail'], $_POST['klantadres'], $_POST['klantpostcode'], $_POST['klantwoonplaats']);
-        if($klant->insertKlant()){
+        if($klant->insertKlant($_POST['klantnaam'], $_POST['klantemail'], $_POST['klantadres'], $_POST['klantpostcode'], $_POST['klantwoonplaats'])){
 			print("Successfully registered.");
 		} else {
 			print("Username or Email already exist.");
 		}
-        
-        
     }
 
 ?>
