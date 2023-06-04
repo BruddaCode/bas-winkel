@@ -57,8 +57,8 @@ for ($i = 0; $i < count($table_body); $i++) {
 			$table_body[$i][4] = "Onbekende status";
 			break;
 	}
-	$options = "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit</a> ";
-	$options .= "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit</a> ";
+	$options = "<a href='orders_artikelen?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-info'>Select artikelen</a> ";
+	$options .= "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit metadata</a> ";
 	$options .= "<a href='orders_delete?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-danger'>Delete</a> ";
 	array_push($table_body[$i], $options);
 }
