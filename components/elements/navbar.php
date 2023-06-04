@@ -22,6 +22,10 @@
 				<a class="nav-link" href=".\inkoop">Inkoop</a>
 			</li>
 
+			<li class="nav-item <?php if ($page_manager->getRouteTitle() == "Artikelen") echo "active"; ?>">
+				<a class="nav-link" href=".\artikelen">Artikelen</a>
+			</li>
+
 			<li class="nav-item <?php if ($page_manager->getRouteTitle() == "Klanten") echo "active"; ?>">
 				<a class="nav-link" href=".\klanten">Klanten</a>
 			</li>
