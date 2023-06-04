@@ -34,6 +34,11 @@
 			"ROUTE": "ORDERSARTIKELEN",
 			"FILE": "orders_artikelen",
 			"TITLE": "Order Wijzigen"
+		},
+		{
+			"ROUTE": "LEVERANCIERS",
+			"FILE": "leveranciers",
+			"TITLE": "Leveranciers"
 		}
 	]
 }
