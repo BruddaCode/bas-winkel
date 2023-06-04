@@ -1,5 +1,5 @@
 <?php
-    require_once 'backend/klant.php';
+    include_once("backend/klant.php");
     $klant = new Klant();
 
     if (isset($_POST['insert'])) {
@@ -18,7 +18,7 @@
 
 	<h1>Klant</h1>
 	<h2>Toevoegen</h2>
-	<form method="post" action="klantformulier.php">
+	<form method="post" action="klanten">
         <br>   
     <label for="an">Klantnaam:</label>
     <input type="text" id="" name="klantnaam" placeholder="klantnaam" required/>
