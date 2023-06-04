@@ -35,7 +35,7 @@ if (isset($_GET["message"])) {
 ?>
 
 <p class="lead display-4">Leveranciers
-	<a href="orders_add" class="btn btn-primary">Toevoegen</a>
+	<a href="leveranciers_add" class="btn btn-primary">Toevoegen</a>
 </p>
 <hr>
 
@@ -43,9 +43,9 @@ if (isset($_GET["message"])) {
 
 
 $table = new elTable();
-$order = new leverancier();
+$leverancier = new leverancier();
 $table_head = ["NR", "Naam", "Contact", "email", "adres", "postcode", "plaats", "Options"];
-$table_body = iterator_to_array($order->selectLeverancier());
+$table_body = iterator_to_array($leverancier->selectLeverancier());
 
 // Add options to every item in table body
 for ($i = 0; $i < count($table_body); $i++) {

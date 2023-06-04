@@ -8,9 +8,9 @@ class leverancier extends crud
 		parent::__construct();
 	}
 
-	public function insertLeverancier($id, $naam, $contact, $email, $adres, $postcode, $plaats)
+	public function insertLeverancier($naam, $contact, $email, $adres, $postcode, $plaats)
 	{
-		return $this->insert("leveranciers", array("levid" => $id, "levnaam" => $naam, "levcontact" => $contact, "levemail" => $email, "levadres" => $adres, "levpostcode" => $postcode, "levplaats" => $plaats));
+		return $this->insert("leveranciers", array("levnaam" => $naam, "levcontact" => $contact, "levemail" => $email, "levadres" => $adres, "levpostcode" => $postcode, "levwoonplaats" => $plaats));
 	}
 	public function selectLeverancier($id = false)
 	{
