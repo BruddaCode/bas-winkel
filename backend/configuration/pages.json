@@ -54,6 +54,11 @@
 			"ROUTE": "LEVERANCIERSDELETE",
 			"FILE": "leveranciers_delete",
 			"TITLE": "Leveranciers Verwijderen"
+		},
+		{
+			"ROUTE": "ARTIKELEN",
+			"FILE": "artikelen",
+			"TITLE": "Artikelen"
 		}
 	]
 }
