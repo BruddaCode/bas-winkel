@@ -8,7 +8,7 @@ $order = new order();
 $artikel = new artikel();
 
 if (isset($_POST["insert"])) {
-	$artikel->insertArtikel($_POST["artikel"], $_POST["aantal"]);
+	$order->insertArtikel($_GET["id"], $_POST["artikel"], $_POST["aantal"]);
 }
 ?>
 

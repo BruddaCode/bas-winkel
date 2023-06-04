@@ -15,6 +15,19 @@ class order extends crud
 	{
 		return $this->insert("verkooporders", array("klantid" => $klantid, "verkorddatum" => $verkorddatum, "verkordstatus" => $verkordstatus));
 	}
+
+	public function insertArtikel($verkoopid, $artid, $aantal)
+	{
+		if ($this->insert("tussentabelverkoop", array("verkoopid" => $verkoopid, "artid" => $artid, "aantal" => $aantal))) {
+			header("location: index.php?page=orders_artikelen&id=" . $verkoopid);
+			exit;
+		} else {
+			$this->update("tussentabelverkoop", array("artid" => $artid, "aantal" => $aantal), "verkoopid=" . $verkoopid);
+			header("location: index.php?page=orders_artikelen&id=" . $verkoopid);
+			exit;
+		}
+	}
+
 	public function selectOrders($id=false)
 	{
 		if($id){
