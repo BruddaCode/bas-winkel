@@ -42,4 +42,9 @@ class order extends crud
 		$object = $this->select("artikelen", "*");
 		return $object;
 	}
+
+	public function insertArtikelen($artid, $aantal)
+	{
+
+	}
 }
