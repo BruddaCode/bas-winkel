@@ -30,9 +30,10 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 		<div class="form-group">
 			<label>Status:</label>
 			<select class="form-control" name="status">
-				<option value="0">In behandeling</option>
-				<option value="1">Verzonden</option>
-				<option value="2">Ontvangen</option>
+				<option value="0">Order is gezet</option>
+				<option value="1">Magazijn werker pakt artikelen</option>
+				<option value="2">Tas met artikelen wordt overhandigt aan bezorger</option>
+				<option value="3">Tas is bezorgd en ontvangen</option>
 			</select>
 		</div>
 
