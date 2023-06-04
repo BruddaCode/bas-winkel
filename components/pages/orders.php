@@ -38,27 +38,27 @@ include_once("components/elements/table.php");
 
 $table = new elTable();
 $order = new order();
-$table_head = ["Order NR", "Artikel NR", "Klant NR", "Datum", "Aantal", "Status", "Options"];
+$table_head = ["Order NR", "Klant NR", "Datum", "Aantal", "Status", "Options"];
 $table_body = iterator_to_array($order->selectOrders());
 
 // Add options to every item in table body
 for ($i = 0; $i < count($table_body); $i++) {
-	switch ($table_body[$i][5]) {
+	switch ($table_body[$i][4]) {
 		case 0:
-			$table_body[$i][5] = "In behandling";
+			$table_body[$i][4] = "In behandling";
 			break;
 		case 1:
-			$table_body[$i][5] = "Verzonden";
+			$table_body[$i][4] = "Verzonden";
 			break;
 		case 2:
-			$table_body[$i][5] = "Bezorged";
+			$table_body[$i][4] = "Bezorged";
 			break;
 		default:
-			$table_body[$i][5] = "Onbekende status";
+			$table_body[$i][4] = "Onbekende status";
 			break;
 	}
-
 	$options = "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit</a> ";
+	$options .= "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit</a> ";
 	$options .= "<a href='orders_delete?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-danger'>Delete</a> ";
 	array_push($table_body[$i], $options);
 }
