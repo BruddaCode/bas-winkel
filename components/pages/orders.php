@@ -16,6 +16,9 @@ if (isset($_GET["message"])) {
 			case 2:
 				echo "De bestelling is succesvol verwijdered.";
 				break;
+			case 3:
+				echo "De bestelling is succesvol geupdate.";
+				break;
 			default:
 				echo "Niet bekende notificatie.";
 				break;

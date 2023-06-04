@@ -35,6 +35,6 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 
 	<a href='orders'>Terug</a>
 
-	<?php
+<?php
 }
 ?>

@@ -28,7 +28,7 @@ class order extends crud
 	public function deleteOrder($id){
 		$this->delete("verkooporders", "verkordid=" . $id);
 	}
-	public function updateOrder( $verkordstatus, $id){
+	public function updateOrder($verkordstatus, $id){
 		$this->update("verkooporders", array("verkordstatus" => $verkordstatus), "verkordid=" . $id);
 	}
 
