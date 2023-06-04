@@ -39,6 +39,21 @@
 			"ROUTE": "LEVERANCIERS",
 			"FILE": "leveranciers",
 			"TITLE": "Leveranciers"
+		},
+		{
+			"ROUTE": "LEVERANCIERSADD",
+			"FILE": "leveranciers_add",
+			"TITLE": "Leveranciers Toevoegen"
+		},
+		{
+			"ROUTE": "LEVERANCIERSEDIT",
+			"FILE": "leveranciers_edit",
+			"TITLE": "Leveranciers Wijzigen"
+		},
+		{
+			"ROUTE": "LEVERANCIERSDELETE",
+			"FILE": "leveranciers_delete",
+			"TITLE": "Leveranciers Verwijderen"
 		}
 	]
 }

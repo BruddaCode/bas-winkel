@@ -56,14 +56,19 @@ class crud extends config
 
 	public function delete($table, $id)
 	{
+		try{
+			$sql = "DELETE FROM $table";
+			$sql .= " WHERE $id ";
+	
+			$result = $this->conn->prepare($sql);
+			$result->execute();
+	
+			return true;
 
-		$sql = "DELETE FROM $table";
-		$sql .= " WHERE $id ";
-
-		$result = $this->conn->prepare($sql);
-		$result = $result->execute();
-
-		return $result;
+		} catch(Exception $e){
+			return false;
+		}
+		
 	}
 
 
