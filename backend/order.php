@@ -13,8 +13,7 @@ class order extends crud
 
 	public function insertOrder($klantid, $verkorddatum, $verkordstatus = 0)
 	{
-		$this->insert("verkooporders", array("klantid" => $klantid, "verkorddatum" => $verkorddatum, "verkordstatus" => $verkordstatus));
-		return true;
+		return $this->insert("verkooporders", array("klantid" => $klantid, "verkorddatum" => $verkorddatum, "verkordstatus" => $verkordstatus));
 	}
 	public function selectOrders($id=false)
 	{
@@ -26,10 +25,10 @@ class order extends crud
 		
 	}
 	public function deleteOrder($id){
-		$this->delete("verkooporders", "verkordid=" . $id);
+		return $this->delete("verkooporders", "verkordid=" . $id);
 	}
 	public function updateOrder($verkordstatus, $id){
-		$this->update("verkooporders", array("verkordstatus" => $verkordstatus), "verkordid=" . $id);
+		return $this->update("verkooporders", array("verkordstatus" => $verkordstatus), "verkordid=" . $id);
 	}
 
 	public function selectKlanten()
