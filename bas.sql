@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 04, 2023 at 12:42 PM
+-- Generation Time: Jun 04, 2023 at 01:41 PM
 -- Server version: 8.0.33
 -- PHP Version: 8.2.6
 
@@ -154,7 +154,10 @@ CREATE TABLE `verkooporders` (
 --
 
 INSERT INTO `verkooporders` (`verkordid`, `klantid`, `verkorddatum`, `verkordstatus`) VALUES
-(1, 2, '2023-06-04', 0);
+(10, 1, '2023-06-04', 2),
+(12, 2, '2023-06-04', 0),
+(13, 1, '2023-06-04', 0),
+(14, 1, '2023-06-04', 0);
 
 --
 -- Indexes for dumped tables
@@ -206,7 +209,6 @@ ALTER TABLE `tussentabelverkoop`
 --
 ALTER TABLE `verkooporders`
   ADD PRIMARY KEY (`verkordid`,`klantid`),
-  ADD UNIQUE KEY `klanten_klantid_UNIQUE` (`klantid`),
   ADD KEY `fk_verkooporders_klanten1_idx` (`klantid`);
 
 --
@@ -241,7 +243,7 @@ ALTER TABLE `leveranciers`
 -- AUTO_INCREMENT for table `verkooporders`
 --
 ALTER TABLE `verkooporders`
-  MODIFY `verkordid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `verkordid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
