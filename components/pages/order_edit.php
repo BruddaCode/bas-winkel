@@ -1,11 +1,11 @@
 <?php
 include_once("backend/order.php");
-$order = new order();
 
 if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 	echo "Error: id has not been set.";
 } else {
 
+	$order = new order();
 ?>
 
 	<p class="lead display-4">Order Wijzigen</p>
