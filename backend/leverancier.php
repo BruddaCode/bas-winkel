@@ -27,7 +27,7 @@ class leverancier extends crud
 	}
 	public function updateLeverancier($id, $naam, $contact, $email, $adres, $postcode, $plaats)
 	{
-		return $this->update("leveranciers", array("levid" => $id, "levnaam" => $naam, "levcontact" => $contact, "levemail" => $email, "levadres" => $adres, "levpostcode" => $postcode, "levplaats" => $plaats), "levid=" . $id);
+		return $this->update("leveranciers", array("levnaam" => $naam, "levcontact" => $contact, "levemail" => $email, "levadres" => $adres, "levpostcode" => $postcode, "levwoonplaats" => $plaats), "levid=" . $id);
 	}
 
 }
