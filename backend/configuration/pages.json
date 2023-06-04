@@ -11,6 +11,21 @@
 			"TITLE": "Klanten"
 		},
 		{
+			"ROUTE": "KLANTENADD",
+			"FILE": "klanten_add",
+			"TITLE": "Klant Toevoegen"
+		},
+		{
+			"ROUTE": "ORDERSDELETE",
+			"FILE": "klanten_delete",
+			"TITLE": "Klant Verwijderen"
+		},
+		{
+			"ROUTE": "KLANTENEDIT",
+			"FILE": "klanten_edit",
+			"TITLE": "Klant Wijzigen"
+		},
+		{
 			"ROUTE": "ORDERS",
 			"FILE": "orders",
 			"TITLE": "Orders"

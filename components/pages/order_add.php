@@ -1,6 +1,8 @@
 <?php
 include_once("backend/order.php");
+include_once("backend/klant.php");
 $order = new order();
+$klant = new Klant();
 
 if (isset($_POST['insert'])) {
 
@@ -23,8 +25,8 @@ if (isset($_POST['insert'])) {
 		<label>Select klant:</label>
 		<select class="form-control" name="klant">
 			<?php
-			$orders = $order->selectKlanten();
-			while ($row = $orders->fetch()) {
+			$klanten = $klant->selectKlant();
+			while ($row = $klanten->fetch()) {
 				$klantId = $row['klantid'];
 				$klantNaam = $row['klantnaam'];
 				echo "<option value=$klantId>$klantNaam (id: $klantId)</option>";
