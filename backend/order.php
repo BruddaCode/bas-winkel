@@ -19,9 +19,9 @@ class order extends crud
 	public function selectOrders($id=false)
 	{
 		if($id){
-			return $this->select("verkooporders", "*", "verkordid=" . $id);
+			return $this->select("verkooporders INNER JOIN klanten ON verkooporders.klantid = klanten.klantid", "verkooporders.verkordid, klanten.klantnaam, verkooporders.verkorddatum, verkooporders.verkordstatus", "verkordid=" . $id);
 		} else {
-			return $this->select("verkooporders", "*");
+			return $this->select("verkooporders INNER JOIN klanten ON verkooporders.klantid = klanten.klantid", "verkooporders.verkordid, klanten.klantnaam, verkooporders.verkorddatum, verkooporders.verkordstatus");
 		}
 		
 	}

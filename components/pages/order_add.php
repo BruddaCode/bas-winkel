@@ -54,7 +54,6 @@ if (isset($_POST['insert'])) {
 
 					?>
 
-
 				</select>
 			</div>
 
@@ -62,5 +61,5 @@ if (isset($_POST['insert'])) {
 	</div>
 
 	<input class="btn btn-primary" type='submit' name='insert' value='Verzenden'>
-	
+
 </form>

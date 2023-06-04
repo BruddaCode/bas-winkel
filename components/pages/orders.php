@@ -41,23 +41,23 @@ if (isset($_GET["message"])) {
 
 $table = new elTable();
 $order = new order();
-$table_head = ["Order NR", "Klant NR", "Datum", "Aantal", "Status", "Options"];
+$table_head = ["Order NR", "Klant", "Datum", "Status", "Options"];
 $table_body = iterator_to_array($order->selectOrders());
 
 // Add options to every item in table body
 for ($i = 0; $i < count($table_body); $i++) {
-	switch ($table_body[$i][4]) {
+	switch ($table_body[$i][3]) {
 		case 0:
-			$table_body[$i][4] = "In behandling";
+			$table_body[$i][3] = "In behandling";
 			break;
 		case 1:
-			$table_body[$i][4] = "Verzonden";
+			$table_body[$i][3] = "Verzonden";
 			break;
 		case 2:
-			$table_body[$i][4] = "Bezorged";
+			$table_body[$i][3] = "Bezorged";
 			break;
 		default:
-			$table_body[$i][4] = "Onbekende status";
+			$table_body[$i][3] = "Onbekende status";
 			break;
 	}
 	$options = "<a href='orders_artikelen?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-info'>Select artikelen</a> ";
