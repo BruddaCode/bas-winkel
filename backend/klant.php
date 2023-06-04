@@ -35,9 +35,9 @@ class Klant extends crud{
 	{
 		return $this->delete("klanten", "klantid=" . $id);
 	}
-	public function updateklant($id, $naam, $email, $adres, $postcode, $plaats)
+	public function updateKlant($id, $naam, $email, $adres, $postcode, $plaats)
 	{
-		return $this->update("klants", array("klantid" => $id, "klantnaam" => $naam, "klantemail" => $email, "klantadres" => $adres, "klantpostcode" => $postcode, "klantplaats" => $plaats), "klantid=" . $id);
+		return $this->update("klanten", array("klantid" => $id, "klantnaam" => $naam, "klantemail" => $email, "klantadres" => $adres, "klantpostcode" => $postcode, "klantwoonplaats" => $plaats), "klantid=" . $id);
 	}
 }
 

@@ -16,7 +16,7 @@
 			"TITLE": "Klant Toevoegen"
 		},
 		{
-			"ROUTE": "ORDERSDELETE",
+			"ROUTE": "KLANTENDELETE",
 			"FILE": "klanten_delete",
 			"TITLE": "Klant Verwijderen"
 		},

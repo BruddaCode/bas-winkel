@@ -4,7 +4,7 @@ $klant = new Klant();
 
 if (isset($_POST['insert'])) {
 
-	if ($klant->updateklant($_GET["id"], $_POST["naam"], $_POST["email"], $_POST["adres"], $_POST["postcode"], $_POST["plaats"])) {
+	if ($klant->updateKlant($_GET["id"], $_POST["naam"], $_POST["email"], $_POST["adres"], $_POST["postcode"], $_POST["plaats"])) {
 		header("Location:./klanten?message=3");
 		exit;
 	} else {
@@ -21,7 +21,7 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 
 	<p class="lead display-4">Klant Wijzigen</p>
 	<hr>
-	<form method="post" action="klants_edit?id=<?php echo $_GET['id'] ?>">
+	<form method="post" action="klanten_edit?id=<?php echo $_GET['id'] ?>">
 
 		<div class="form-group">
 			<label>Naam:</label>
