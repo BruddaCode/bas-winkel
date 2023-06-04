@@ -31,20 +31,4 @@ class order extends crud
 		return $this->update("verkooporders", array("verkordstatus" => $verkordstatus), "verkordid=" . $id);
 	}
 
-	public function selectKlanten()
-	{
-		$object = $this->select("klanten", "*");
-		return $object;
-	}
-
-	public function selectArtikelen()
-	{
-		$object = $this->select("artikelen", "*");
-		return $object;
-	}
-
-	public function insertArtikelen($artid, $aantal)
-	{
-
-	}
 }
