@@ -24,7 +24,7 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 		<input type='submit' name='insert' value='Update'>
 	</form></br>
 
-	<a href='orders.php'>Terug</a>
+	<a href='orders'>Terug</a>
 
 	<?php
 }
