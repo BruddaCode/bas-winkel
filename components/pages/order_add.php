@@ -6,7 +6,7 @@ if (isset($_POST['insert'])) {
 
 	$datum = date("Y-m-d");
 
-	if ($order->insertOrder($_POST['product'], $_POST['klant'], $datum, $_POST['aantal'], 0)) {
+	if ($order->insertOrder($_POST['klant'], $datum, $_POST['status'])) {
 		header("Location:./orders?message=1");
 		exit;
 	} else {
@@ -34,26 +34,14 @@ if (isset($_POST['insert'])) {
 	</div>
 
 	<div class="form-group">
-		<label>Product:</label>
+		<label>Status:</label>
 		<div class="form-inline">
-
 			<div class="form-group mr-2">
-				<input type="number" class="form-control" name="aantal" value="1" min="1" max="99">
-			</div>
-
-			<div class="form-group mr-2">
-				<select class="form-control" name="product">
-					<?php
-					$orders = $order->selectArtikelen();
-					while ($row = $orders->fetch()) {
-						$artId = $row['artid'];
-						$artOmschrijving = $row['artikelenomschrijving'];
-						$artVerkoop = $row['artverkoop'];
-						echo "<option value='$artId'>$artOmschrijving (&euro; $artVerkoop)</option>";
-					}
-
-					?>
-
+				<select class="form-control" name="status">
+					<option value="0">Order is gezet</option>
+					<option value="1">Magazijn werker pakt artikelen</option>
+					<option value="2">Tas met artikelen wordt overhandigt aan bezorger</option>
+					<option value="3">Tas is bezorgd en ontvangen</option>
 				</select>
 			</div>
 
