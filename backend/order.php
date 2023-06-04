@@ -20,6 +20,9 @@ class order extends crud
 	{
 		return $this->select("verkooporders", "*");
 	}
+	public function deleteOrder($id){
+		$this->delete("verkooporders", "verkordid=" . $id);
+	}
 
 	public function selectKlanten()
 	{

@@ -19,6 +19,16 @@
 			"ROUTE": "ORDERSADD",
 			"FILE": "orderform",
 			"TITLE": "Order Toevoegen"
+		},
+		{
+			"ROUTE": "ORDERSDELETE",
+			"FILE": "order_delete",
+			"TITLE": "Order Verwijderen"
+		},
+		{
+			"ROUTE": "ORDERSEDIT",
+			"FILE": "order_edit",
+			"TITLE": "Order Wijzigen"
 		}
 	]
 }

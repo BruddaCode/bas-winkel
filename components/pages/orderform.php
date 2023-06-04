@@ -7,7 +7,7 @@ if (isset($_POST['insert'])) {
 	$datum = date("Y-m-d");
 
 	if ($order->insertOrder($_POST['product'], $_POST['klant'], $datum, $_POST['aantal'], 0)) {
-		echo "Order is geplaatst.";
+		header("Location:./orders?message=1");
 		exit;
 	} else {
 		echo "Kan order niet plaatsen.";
@@ -54,7 +54,7 @@ if (isset($_POST['insert'])) {
 	echo "</form></br>";
 	?>
 
-	<a href='index.php'>Terug</a>
+	<a href='orders'>Terug</a>
 
 </body>
 
