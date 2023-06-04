@@ -17,7 +17,7 @@
 		},
 		{
 			"ROUTE": "ORDERSADD",
-			"FILE": "orderform",
+			"FILE": "order_add",
 			"TITLE": "Order Toevoegen"
 		},
 		{

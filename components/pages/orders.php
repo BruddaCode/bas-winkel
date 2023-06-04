@@ -43,6 +43,21 @@ $table_body = iterator_to_array($order->selectOrders());
 
 // Add options to every item in table body
 for ($i = 0; $i < count($table_body); $i++) {
+	switch ($table_body[$i][5]) {
+		case 0:
+			$table_body[$i][5] = "In behandling";
+			break;
+		case 1:
+			$table_body[$i][5] = "Verzonden";
+			break;
+		case 2:
+			$table_body[$i][5] = "Bezorged";
+			break;
+		default:
+			$table_body[$i][5] = "Onbekende status";
+			break;
+	}
+
 	$options = "<a href='orders_edit?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-warning'>Edit</a> ";
 	$options .= "<a href='orders_delete?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-danger'>Delete</a> ";
 	array_push($table_body[$i], $options);
