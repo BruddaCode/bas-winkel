@@ -48,16 +48,16 @@ $table_body = iterator_to_array($order->selectOrders());
 for ($i = 0; $i < count($table_body); $i++) {
 	switch ($table_body[$i][3]) {
 		case 0:
-			$table_body[$i][3] = "In behandling";
+			$table_body[$i][3] = "Order is gezet";
 			break;
 		case 1:
-			$table_body[$i][3] = "Verzonden";
+			$table_body[$i][3] = "Magazijn werker pakt artikelen";
 			break;
 		case 2:
-			$table_body[$i][3] = "Bezorged";
+			$table_body[$i][3] = "Tas met artikelen wordt overhandigt aan bezorger";
 			break;
 		default:
-			$table_body[$i][3] = "Onbekende status";
+			$table_body[$i][3] = "Tas is bezorgd en ontvangen";
 			break;
 	}
 	$options = "<a href='orders_artikelen?id=" . $table_body[$i]["verkordid"] . "' class='btn btn-info'>Select artikelen</a> ";
