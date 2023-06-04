@@ -29,6 +29,11 @@
 			"ROUTE": "ORDERSEDIT",
 			"FILE": "order_edit",
 			"TITLE": "Order Wijzigen"
+		},
+		{
+			"ROUTE": "ORDERSARTIKELEN",
+			"FILE": "orders_artikelen",
+			"TITLE": "Order Wijzigen"
 		}
 	]
 }
