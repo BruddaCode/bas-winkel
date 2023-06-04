@@ -1,4 +1,9 @@
 <?php
+
+include_once("backend/order.php");
+include_once("components/elements/table.php");
+
+
 if (isset($_GET["message"])) {
 	?>
 	<div class="alert alert-success" role="alert">
@@ -33,8 +38,6 @@ if (isset($_GET["message"])) {
 
 <?php
 
-include_once("backend/order.php");
-include_once("components/elements/table.php");
 
 $table = new elTable();
 $order = new order();
