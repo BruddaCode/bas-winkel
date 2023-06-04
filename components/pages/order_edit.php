@@ -1,16 +1,26 @@
 <?php
 include_once("backend/order.php");
+$order = new order();
+
+if (isset($_POST['insert'])) {
+
+	if ($order->updateOrder($_POST['status'], $_GET["id"])) {
+		header("Location:./orders?message=3");
+		exit;
+	} else {
+		echo "Kan order niet plaatsen.";
+	}
+}	
 
 if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 	echo "Error: id has not been set.";
 } else {
 
-	$order = new order();
 ?>
 
 	<p class="lead display-4">Order Wijzigen</p>
 	<hr>
-	<form method="post" action="order_edit">
+	<form method="post" action="orders_edit?id=<?php echo $_GET['id'] ?>">
 		<div class="form-group">
 			<label>Klant naam:</label>
 				<?php
