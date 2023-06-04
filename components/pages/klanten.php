@@ -1,47 +1,59 @@
 <?php
-    include_once("backend/klant.php");
-    $klant = new Klant();
 
-    if (isset($_POST['insert'])) {
-        if($klant->insertKlant($_POST['klantnaam'], $_POST['klantemail'], $_POST['klantadres'], $_POST['klantpostcode'], $_POST['klantwoonplaats'])){
-			print("Successfully registered.");
-		} else {
-			print("Username or Email already exist.");
+include_once("backend/klant.php");
+include_once("components/elements/table.php");
+
+
+if (isset($_GET["message"])) {
+	?>
+	<div class="alert alert-success" role="alert">
+
+		<?php
+		switch ($_GET["message"]) {
+			case 1:
+				echo "De klant is succesvol gecreëerd.";
+				break;
+			case 2:
+				echo "De klant is succesvol verwijdered.";
+				break;
+			case 3:
+				echo "De klant is succesvol geupdate.";
+				break;
+			default:
+				echo "Niet bekende notificatie.";
+				break;
+
 		}
-    }
 
+		?>
+
+
+	</div>
+
+	<?php
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-<body>
+<p class="lead display-4">Klanten
+	<a href="klanten_add" class="btn btn-primary">Toevoegen</a>
+</p>
+<hr>
 
-	<h1>Klant</h1>
-	<h2>Toevoegen</h2>
-	<form method="post" action="klanten">
-        <br>   
-    <label for="an">Klantnaam:</label>
-    <input type="text" id="" name="klantnaam" placeholder="klantnaam" required/>
-        <br>
-    <label for="an">Klantemail:</label>
-    <input type="text" id="" name="klantemail" placeholder="klantemail" required/>
-        <br>
-    <label for="an">Klantadres:</label>
-    <input type="text" id="" name="klantadres" placeholder="klantadres" required/>
-        <br>
-    <label for="an">Klantpostcode:</label>
-    <input type="text" id="" name="klantpostcode" placeholder="klantpostcode" required/>
-        <br>
-    <label for="an">Klantwoonplaats:</label>
-    <input type="text" id="" name="klantwoonplaats" placeholder="klantwoonplaats" required/>
-        <br><br>
-    <input type='submit' name='insert' value='Toevoegen'>
-    </form></br>
-
-	<a href='index.php'>Terug</a>
-
-</body>
-</html>
+<?php
 
 
+$table = new elTable();
+$klant = new Klant();
+$table_head = ["NR", "Naam", "email", "adres", "postcode", "plaats", "Options"];
+$table_body = iterator_to_array($klant->selectKlant());
 
+// Add options to every item in table body
+for ($i = 0; $i < count($table_body); $i++) {
+
+	$options = "<a href='klanten_edit?id=" . $table_body[$i]["klantid"] . "' class='btn btn-warning'>Edit</a> ";
+	$options .= "<a href='klanten_delete?id=" . $table_body[$i]["klantid"] . "' class='btn btn-danger'>Delete</a> ";
+	array_push($table_body[$i], $options);
+}
+
+$table->generateTable($table_head, $table_body);
+?>

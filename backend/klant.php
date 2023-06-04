@@ -21,7 +21,24 @@ class Klant extends crud{
         }
     }
 
-    
+    public function selectKlant($id = false)
+	{
+		if ($id) {
+			return $this->select("klanten", "*", "klantid=" . $id);
+		} else {
+			return $this->select("klanten", "*");
+		}
+
+	}
+
+    public function deleteKlant($id)
+	{
+		return $this->delete("klanten", "klantid=" . $id);
+	}
+	public function updateklant($id, $naam, $email, $adres, $postcode, $plaats)
+	{
+		return $this->update("klants", array("klantid" => $id, "klantnaam" => $naam, "klantemail" => $email, "klantadres" => $adres, "klantpostcode" => $postcode, "klantplaats" => $plaats), "klantid=" . $id);
+	}
 }
 
 ?>
