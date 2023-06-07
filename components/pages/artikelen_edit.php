@@ -1,6 +1,8 @@
 <?php
 include_once("backend/artikel.php");
+include_once("backend/leverancier.php");
 $artikel = new artikel();
+$leverancier = new leverancier();
 
 if (isset($_POST['insert'])) {
 
@@ -19,47 +21,48 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 
 	?>
 
-	<p class="lead display-4">Artikel Wijzigen</p>
-	<hr>
-	<form method='post' action='artikelen_edit'>
+<p class="lead display-4">Artikel Wijzigen</p>
+<hr>
+<form method='post' action='artikelen_edit?id=<?php echo $_GET['id'] ?>'>
+
 	<div class="form-group">
 		<label>Omschrijving:</label>
-		<input type="text" class="form-control" name="omschrijving" value="<?php echo $row["omschrijving"]; ?>">
+		<input type="text" class="form-control" name="omschrijving" value="<?php echo $row["artikelenomschrijving"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Inkoop:</label>
-		<input type="inkoop" class="form-control" name="inkoop" value="<?php echo $row["inkoop"]; ?>">
+		<input type="inkoop" class="form-control" name="inkoop" value="<?php echo $row["artinkoop"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Verkoop:</label>
-		<input type="text" class="form-control" name="verkoop" value="<?php echo $row["verkoop"]; ?>">
+		<input type="text" class="form-control" name="verkoop" value="<?php echo $row["artverkoop"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Voorraad:</label>
-		<input type="text" class="form-control" name="voorraad" value="<?php echo $row["voorraad"]; ?>">
+		<input type="text" class="form-control" name="voorraad" value="<?php echo $row["artvoorraad"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Minvoorraad:</label>
-		<input type="text" class="form-control" name="minvoorraad" value="<?php echo $row["minvoorraad"]; ?>">
+		<input type="text" class="form-control" name="minvoorraad" value="<?php echo $row["artminvoorraad"]; ?>">
 	</div>
 
     <div class="form-group">
 		<label>Maxvoorraad:</label>
-		<input type="text" class="form-control" name="maxvoorraad" value="<?php echo $row["maxvoorraad"]; ?>">
+		<input type="text" class="form-control" name="maxvoorraad" value="<?php echo $row["artmaxvoorraad"]; ?>">
 	</div>
 
     <div class="form-group">
 		<label>Locatie:</label>
-		<input type="text" class="form-control" name="locatie" value="<?php echo $row["locatie"]; ?>">
+		<input type="text" class="form-control" name="locatie" value="<?php echo $row["artlocatie"]; ?>">
 	</div>
 
     <div class="form-group">
 		<label>Select leverancier:</label>
-		<select class="form-control" name="klant">
+		<select class="form-control" name="levid">
 			<?php
 			$leveranciers = $leverancier->selectLeverancier();
 			while ($row = $leveranciers->fetch()) {
@@ -74,7 +77,7 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 
 </form>
 
-	<a href='artikels'>Terug</a>
+	<a href='artikelen'>Terug</a>
 
 	<?php
 }
