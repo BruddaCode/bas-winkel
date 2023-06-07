@@ -18,7 +18,7 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 		<h1>verwijder artikel?</h1>
 		<h3>Weet u het zeker om deze artikel te verwijderen?</h3>
 		<a href="./orders" class="btn btn-secondary">Terug</a> <a
-			href="./artikels_delete?id=<?php echo $_GET["id"]; ?>&confirm=true" class="btn btn-danger">Ik weet het zeker, verwijder</a>
+			href="./artikelen_delete?id=<?php echo $_GET["id"]; ?>&confirm=true" class="btn btn-danger">Ik weet het zeker, verwijder</a>
 
 	<?php
 }

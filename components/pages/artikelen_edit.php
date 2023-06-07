@@ -19,42 +19,42 @@ if (!isset($_GET["id"]) || strlen($_GET["id"]) == 0) {
 
 	?>
 
-	<p class="lead display-4">artikel Wijzigen</p>
+	<p class="lead display-4">Artikel Wijzigen</p>
 	<hr>
-	<form method='post' action='artikelen_add'>
+	<form method='post' action='artikelen_edit'>
 	<div class="form-group">
 		<label>Omschrijving:</label>
-		<input type="text" class="form-control" name="omschrijving">
+		<input type="text" class="form-control" name="omschrijving" value="<?php echo $row["omschrijving"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Inkoop:</label>
-		<input type="inkoop" class="form-control" name="inkoop">
+		<input type="inkoop" class="form-control" name="inkoop" value="<?php echo $row["inkoop"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Verkoop:</label>
-		<input type="text" class="form-control" name="verkoop">
+		<input type="text" class="form-control" name="verkoop" value="<?php echo $row["verkoop"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Voorraad:</label>
-		<input type="text" class="form-control" name="voorraad">
+		<input type="text" class="form-control" name="voorraad" value="<?php echo $row["voorraad"]; ?>">
 	</div>
 
 	<div class="form-group">
 		<label>Minvoorraad:</label>
-		<input type="text" class="form-control" name="minvoorraad">
+		<input type="text" class="form-control" name="minvoorraad" value="<?php echo $row["minvoorraad"]; ?>">
 	</div>
 
     <div class="form-group">
 		<label>Maxvoorraad:</label>
-		<input type="text" class="form-control" name="maxvoorraad">
+		<input type="text" class="form-control" name="maxvoorraad" value="<?php echo $row["maxvoorraad"]; ?>">
 	</div>
 
     <div class="form-group">
 		<label>Locatie:</label>
-		<input type="text" class="form-control" name="locatie">
+		<input type="text" class="form-control" name="locatie" value="<?php echo $row["locatie"]; ?>">
 	</div>
 
     <div class="form-group">

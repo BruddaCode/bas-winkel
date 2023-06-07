@@ -56,7 +56,7 @@ if (isset($_POST['insert'])) {
 
     <div class="form-group">
 		<label>Select leverancier:</label>
-		<select class="form-control" name="leverancier">
+		<select class="form-control" name="levid">
 			<?php
 			$leveranciers = $leverancier->selectLeverancier();
 			while ($row = $leveranciers->fetch()) {
