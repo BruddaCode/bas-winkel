@@ -71,6 +71,12 @@
 			"TITLE": "Leveranciers Verwijderen"
 		},
 		{
+			"ROUTE": "INKOOP",
+			"FILE": "inkoop",
+			"TITLE": "Inkoop orders"
+		},
+		
+		{
 			"ROUTE": "ARTIKELEN",
 			"FILE": "artikelen",
 			"TITLE": "Artikelen"

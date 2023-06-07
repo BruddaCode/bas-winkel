@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'crud.php';
+include_once 'crud.php';
 
 class Klant extends crud{
 
