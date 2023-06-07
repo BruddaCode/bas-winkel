@@ -1,8 +1,6 @@
 <?php
 
 include_once 'crud.php';
-include_once 'artikel.php';
-include_once 'klant.php';
 class order extends crud
 {
 
