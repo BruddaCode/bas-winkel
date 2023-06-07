@@ -58,8 +58,8 @@ for ($i = 0; $i < count($table_body); $i++) {
 	}
 
 	$options = "<a href='#' class='btn btn-info disabled'>Select artikelen(disabled)</a> ";
-	$options .= "<a href='orders_edit?id=" . $table_body[$i]["inkordid"] . "' class='btn btn-warning'>Edit metadata</a> ";
-	$options .= "<a href='orders_delete?id=" . $table_body[$i]["inkordid"] . "' class='btn btn-danger'>Delete</a> ";
+	$options .= "<a href='inkoop_edit?id=" . $table_body[$i]["inkordid"] . "' class='btn btn-warning'>Edit metadata</a> ";
+	$options .= "<a href='inkoop_delete?id=" . $table_body[$i]["inkordid"] . "' class='btn btn-danger'>Delete</a> ";
 	array_push($table_body[$i], $options);
 }
 

@@ -75,7 +75,21 @@
 			"FILE": "inkoop",
 			"TITLE": "Inkoop orders"
 		},
-		
+		{
+			"ROUTE": "INKOOPADD",
+			"FILE": "inkoop_add",
+			"TITLE": "Inkoop toevoegen"
+		},
+		{
+			"ROUTE": "INKOOPEDIT",
+			"FILE": "inkoop_edit",
+			"TITLE": "Inkoop Edit"
+		},
+		{
+			"ROUTE": "INKOOPDELETE",
+			"FILE": "inkoop_delete",
+			"TITLE": "Inkoop Verwijderen"
+		},
 		{
 			"ROUTE": "ARTIKELEN",
 			"FILE": "artikelen",

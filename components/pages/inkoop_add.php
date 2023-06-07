@@ -1,37 +1,37 @@
 <?php
-include_once("backend/order.php");
-include_once("backend/klant.php");
-$order = new order();
-$klant = new Klant();
+include_once "backend/inkoop.php";
+include_once "backend/leverancier.php";
+$inkoop = new inkoop();
+$leverancier = new leverancier();
 
 if (isset($_POST['insert'])) {
 
-	$datum = date("Y-m-d");
+    $datum = date("Y-m-d");
 
-	if ($order->insertOrder($_POST['klant'], $datum, $_POST['status'])) {
-		header("Location:./orders?message=1");
-		exit;
-	} else {
-		echo "Kan order niet plaatsen.";
-	}
+    if ($inkoop->insertInkoop($_POST['lev'], $datum, $_POST['status'])) {
+        header("Location:./inkoop?message=1");
+        exit;
+    } else {
+        echo "Kan inkoop order niet plaatsen.";
+    }
 }
 ?>
 
 
-<p class="lead display-4">Order toevoegen</p>
+<p class="lead display-4">Inkoop toevoegen</p>
 <hr>
-<form method='post' action='orders_add'>
+<form method='post' action='inkoop_add'>
 	<div class="form-group">
-		<label>Select klant:</label>
-		<select class="form-control" name="klant">
+		<label>Select leverancier:</label>
+		<select class="form-control" name="lev">
 			<?php
-			$klanten = $klant->selectKlant();
-			while ($row = $klanten->fetch()) {
-				$klantId = $row['klantid'];
-				$klantNaam = $row['klantnaam'];
-				echo "<option value=$klantId>$klantNaam (id: $klantId)</option>";
-			}
-			?>
+$klanten = $leverancier->selectLeverancier();
+while ($row = $klanten->fetch()) {
+    $levid = $row['levid'];
+    $levnaam = $row['levnaam'];
+    echo "<option value=$levid>$levnaam (id: $levid)</option>";
+}
+?>
 		</select>
 	</div>
 
@@ -40,10 +40,8 @@ if (isset($_POST['insert'])) {
 		<div class="form-inline">
 			<div class="form-group mr-2">
 				<select class="form-control" name="status">
-					<option value="0">Order is gezet</option>
-					<option value="1">Magazijn werker pakt artikelen</option>
-					<option value="2">Tas met artikelen wordt overhandigt aan bezorger</option>
-					<option value="3">Tas is bezorgd en ontvangen</option>
+					<option value="0">Order niet ontvangen</option>
+					<option value="1">Order ontvangen</option>
 				</select>
 			</div>
 

@@ -10,9 +10,9 @@ class inkoop extends crud
 		parent::__construct();
 	}
 
-	public function insertInkoop($levid, $inkorddatum, $verkordstatus = 0)
+	public function insertInkoop($levid, $inkorddatum, $inkordstatus = 0)
 	{
-		return $this->insert("inkooporders", array("levid" => $levid, "inkorddatum" => $inkorddatum, "verkordstatus" => $verkordstatus));
+		return $this->insert("inkooporders", array("levid" => $levid, "inkorddatum" => $inkorddatum, "inkordstatus" => $inkordstatus));
 	}
 
 	// Opdracht vervalt
@@ -37,10 +37,10 @@ class inkoop extends crud
 		}
 		
 	}
-	public function deleteOrder($id){
+	public function deleteInkoop($id){
 		return $this->delete("inkooporders", "inkordid=" . $id);
 	}
-	public function updateOrder($inkordstatus, $id){
+	public function updateInkoop($inkordstatus, $id){
 		return $this->update("inkooporders", array("inkordstatus" => $inkordstatus), "inkordid=" . $id);
 	}
 
