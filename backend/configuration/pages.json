@@ -74,6 +74,21 @@
 			"ROUTE": "ARTIKELEN",
 			"FILE": "artikelen",
 			"TITLE": "Artikelen"
+		},
+		{
+			"ROUTE": "ARTIKELENADD",
+			"FILE": "artikelen_add",
+			"TITLE": "Artikelen Toevoegen"
+		},
+		{
+			"ROUTE": "ARTIKELENDELETE",
+			"FILE": "artikelen_delete",
+			"TITLE": "Artikelen Verwijderen"
+		},
+		{
+			"ROUTE": "ARTIKELENEDIT",
+			"FILE": "artikelen_edit",
+			"TITLE": "Artikelen Wijzigen"
 		}
 	]
 }
