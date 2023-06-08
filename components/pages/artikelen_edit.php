@@ -7,7 +7,7 @@ $leverancier = new leverancier();
 if (isset($_POST['insert'])) {
 
 	if ($artikel->updateArtikel($_GET["id"], $_POST["omschrijving"], $_POST["inkoop"], $_POST["verkoop"], $_POST["voorraad"], $_POST["minvoorraad"], $_POST["maxvoorraad"], $_POST["locatie"], $_POST["levid"])) {
-		header("Location:./artikels?message=3");
+		header("Location:./artikelen?message=3");
 		exit;
 	} else {
 		echo "Kan artikel niet plaatsen.";
