@@ -50,8 +50,8 @@ $table_body = iterator_to_array($artikel->selectArtikel());
 // Add options to every item in table body
 for ($i = 0; $i < count($table_body); $i++) {
 
-	$options = "<a href='artikelen_edit?id=" . $table_body[$i]["levid"] . "' class='btn btn-warning'>Edit</a> ";
-	$options .= "<a href='artikelen_delete?id=" . $table_body[$i]["levid"] . "' class='btn btn-danger'>Delete</a> ";
+	$options = "<a href='artikelen_edit?id=" . $table_body[$i]["artid"] . "' class='btn btn-warning'>Edit</a> ";
+	$options .= "<a href='artikelen_delete?id=" . $table_body[$i]["artid"] . "' class='btn btn-danger'>Delete</a> ";
 	array_push($table_body[$i], $options);
 }
 
