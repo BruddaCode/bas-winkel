@@ -1,6 +1,38 @@
+@font-face {
+	font-family: bas;
+	src: url(../font/Impact22.woff);
+}
+body{
+	font-family: bas;
+}
 
 .container {
 	padding: 12px;
 }
 
+.navbar {
+	background-color: #e30613 !important;
+}
 
+.navbar-nav .active>.nav-link{
+	
+	color: rgba(255,255,255,.9) !important;
+}
+.navbar-nav .nav-link{
+	
+	color: rgba(255,255,255,.5) !important;
+}
+.navbar-brand {
+	color: #fff !important;
+	font-weight: 400;
+    line-height: 1;
+}
+.navbar-brand::after{
+    background: #fff;
+    bottom: 15px;
+    content: "";
+    display: block;
+    height: 2px;
+    position: absolute;
+    width: 32px;
+}
