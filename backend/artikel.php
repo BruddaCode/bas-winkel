@@ -27,7 +27,7 @@ class artikel extends crud
 	}
 	public function updateArtikel($id, $omschrijving, $inkoop, $verkoop, $voorraad, $minvoorraad, $maxvoorraad, $locatie, $levid)
 	{
-		return $this->update("artikelen", array("artikelenomschrijving" => $omschrijving, "artinkoop" => $inkoop, "artverkoop" => $verkoop, "artvoorraad" => $voorraad, "artminvoorraad" => $minvoorraad, "artmaxvoorraad" => $maxvoorraad, "artlocatie" => $locatie, "levid" => $levid), "levid=" . $id);
+		return $this->update("artikelen", array("artikelenomschrijving" => $omschrijving, "artinkoop" => $inkoop, "artverkoop" => $verkoop, "artvoorraad" => $voorraad, "artminvoorraad" => $minvoorraad, "artmaxvoorraad" => $maxvoorraad, "artlocatie" => $locatie, "levid" => $levid), "artid=" . $id);
 	}
 
 }
