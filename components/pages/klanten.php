@@ -31,6 +31,11 @@ if (isset($_GET["message"])) {
 
     <?php
 }
+
+$q = "";
+if (isset($_GET["q"]))
+    $q = $_GET["q"];
+
 ?>
 
 <p class="lead display-4">Klanten
@@ -40,7 +45,8 @@ if (isset($_GET["message"])) {
 
 <form action="klanten">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Zoek naar klant" name="q" value="<?php echo $_GET["q"]; ?>">
+        <input type="text" class="form-control" placeholder="Zoek naar klant" name="q"
+            value="<?php echo $q; ?>">
         <div class="input-group-append">
             <input class="btn btn-outline-secondary" type="submit" value="Zoek">
 
@@ -54,10 +60,10 @@ $table = new elTable();
 $klant = new Klant();
 $table_head = ["NR", "Naam", "email", "adres", "postcode", "plaats", "Options"];
 
-if(isset($_GET["q"])){
-    $table_body =  $klant->selectSearch($_GET["q"]);
+if (isset($_GET["q"])) {
+    $table_body = $klant->selectSearch($_GET["q"]);
 } else {
-    $table_body =  $klant->selectKlant();
+    $table_body = $klant->selectKlant();
 }
 
 
