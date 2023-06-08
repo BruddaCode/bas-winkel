@@ -30,6 +30,11 @@ class Klant extends crud{
 		}
 
 	}
+    public function selectSearch($search)
+	{
+        return $this->select("klanten", "*", "klantnaam LIKE '%" . $search . "%' OR klantemail LIKE '%" . $search . "%'");
+
+	}
 
     public function deleteKlant($id)
 	{
